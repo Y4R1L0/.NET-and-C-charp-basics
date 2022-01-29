@@ -11,45 +11,34 @@ namespace Polygon
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                //Калькулятор
+                //Среднее арефметическое 5 рандомнчх чисел
                 NumberFormatInfo numberFormatInfo = new NumberFormatInfo
                 {
                     NumberDecimalSeparator = ".",
                 };
-                double firstValue, secondValue;
-                string action;
+            //Создание объекта для генерации чисел
+            Random rnd = new Random();
 
-                Console.WriteLine("Input first number");
-                firstValue = double.Parse(Console.ReadLine(), numberFormatInfo);
+            double num1 = rnd.Next(0,1000);
+            Console.WriteLine(num1);
 
-                Console.WriteLine("Input operator (+ - * /)");
-                action = Console.ReadLine();
+            double num2 = rnd.Next(0, 1000);
+            Console.WriteLine(num2);
 
-                Console.WriteLine("Input second number");
-                secondValue = double.Parse(Console.ReadLine(), numberFormatInfo);
+            double num3 = rnd.Next(0, 1000);
+            Console.WriteLine(num3);
 
-                switch (action)
-                {
-                    case "+":
-                        Console.WriteLine(firstValue + secondValue);
-                        break;
-                    case "-":
-                        Console.WriteLine(firstValue - secondValue);
-                        break;
-                    case "*":
-                        Console.WriteLine(firstValue * secondValue);
-                        break;
-                    case "/":
-                        if (secondValue == 0) Console.WriteLine("Do you want to divide by zero ? A sick schizophrenic...");
-                        else Console.WriteLine(firstValue / secondValue);
-                        break;
-                    default:
-                        Console.WriteLine("Wrong operator");
-                        break;
-                }
-            }
+            double num4 = rnd.Next(0, 1000);
+            Console.WriteLine(num4);
+
+            double num5 = rnd.Next(0, 1000);
+            Console.WriteLine(num5);
+
+            double rndnum = ( num1 + num2 + num3 + num4 + num5) / 5;
+
+            Console.WriteLine(rndnum);
+            Console.ReadLine();
+            
         }
     }
 }
