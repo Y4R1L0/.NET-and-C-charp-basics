@@ -5,44 +5,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace ConsoleApp2
+namespace Polygon
 {
     class Program
     {
         static void Main(string[] args)
         {
-            NumberFormatInfo numberFormatInfo = new NumberFormatInfo
+            while (true)
             {
-                NumberDecimalSeparator = ".",
-            };
-            /*
-            string ,strr;
-            strr=Console.ReadLine();
-            Console.WriteLine("Hello, "+strr);
-            */
+                //Калькулятор
+                NumberFormatInfo numberFormatInfo = new NumberFormatInfo
+                {
+                    NumberDecimalSeparator = ".",
+                };
+                double firstValue, secondValue;
+                string action;
 
-            /*
-            int a,b;
-            string str;
-            Console.WriteLine("Input number 1:");
-            str = Console.ReadLine();
-            a = Convert.ToInt32(str);
+                Console.WriteLine("Input first number");
+                firstValue = double.Parse(Console.ReadLine(), numberFormatInfo);
 
-            Console.WriteLine("Input number 2:");
-            str = Console.ReadLine();
-            b = Convert.ToInt32(str);
+                Console.WriteLine("Input operator (+ - * /)");
+                action = Console.ReadLine();
 
-            int res = a + b;
-            Console.WriteLine(a+"+"+ b +"="+res);
-            */
+                Console.WriteLine("Input second number");
+                secondValue = double.Parse(Console.ReadLine(), numberFormatInfo);
 
-            string strToNum = "5";
-
-            int c = int.Parse(strToNum);
-            Console.WriteLine("Number 3:");
-            Console.WriteLine(c);
-
-            Console.ReadLine();
+                switch (action)
+                {
+                    case "+":
+                        Console.WriteLine(firstValue + secondValue);
+                        break;
+                    case "-":
+                        Console.WriteLine(firstValue - secondValue);
+                        break;
+                    case "*":
+                        Console.WriteLine(firstValue * secondValue);
+                        break;
+                    case "/":
+                        if (secondValue == 0) Console.WriteLine("Do you want to divide by zero ? A sick schizophrenic...");
+                        else Console.WriteLine(firstValue / secondValue);
+                        break;
+                    default:
+                        Console.WriteLine("Wrong operator");
+                        break;
+                }
+            }
         }
     }
 }
