@@ -19,7 +19,7 @@ namespace Polygon
             //Создание объекта для генерации чисел
             Random rnd = new Random();
 
-            double num1 = rnd.Next(0,1000);
+            double num1 = rnd.Next(0, 1000);
             Console.WriteLine(num1);
 
             double num2 = rnd.Next(0, 1000);
@@ -37,8 +37,13 @@ namespace Polygon
             double rndnum = ( num1 + num2 + num3 + num4 + num5) / 5;
 
             Console.WriteLine(rndnum);
+
             Console.ReadLine();
             
         }
     }
 }
+/*
+ Компоненты которыми управляет ОС
+ 
+ */
