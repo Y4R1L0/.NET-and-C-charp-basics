@@ -1,69 +1,106 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-namespace Basics
+namespace Basicks2
 {
-    class TypeC
+    partial class App
     {
-        public int x;
-        public override bool Equals(object obj)
+        int[] arr1;
+        int[,] arr2;
+        int[][] arr3;
+
+        public void CtorDemo()
         {
-            if (obj is TypeC)
+            TheClass obj = new TheClass();
+            Console.WriteLine(obj);
+        }
+        public void Run()
+        {
+
+            CtorDemo();
+
+
+        }
+        public void ArraysDemo()
+        {
+            Console.WriteLine("О массивах и коллекциях");
+
+            arr1 = new int[10];
+
+            for (int i = 0; i < 5; i++)
             {
-                TypeC other = obj as TypeC;
-                return other.x == x;
+                arr1[i] = i * i;
             }
-            else return false;
-        }
-    }
-    struct TypeS
-    {
-        public int x;
-    }
-    internal class Program
-    {
-
-        static void Main()
-        {
-            TypeC c1 = new TypeC();
-            c1.x = 10;
-
-            var c2 = new TypeC { 
-                x = 20
-            };
-
-            TypeS s1 = new TypeS();
-            s1.x = 10;
-
-            var s2 = new TypeS
+            foreach (int x in arr1)
             {
-                x = 20
-            };
+                Console.WriteLine(x);
+            }
+            Console.WriteLine("--------------");
+            Console.WriteLine("array size: " + arr1.Length);
 
-            Console.WriteLine(c1 == c2 ? "Equals" : "Not equals");
+            arr2 = new int[3, 4];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    arr2[i, j] = 10 * i + j + 11;
+                }
+            foreach (var x2 in arr2)
+            {
+                Console.WriteLine(x2);
+            }
 
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Console.Write(arr2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            arr3 = new int[3][];
+            for (int i = 0; i < 3; i++)
+            {
+                arr3[i] = new int[2 + i];
+                for (int j = 0; j < 2 + i; j++)
+                {
+                    arr3[i][j] = 10 * i + j + 11;
+                }
+            }
+            foreach (var x2 in arr3)
+            {
+                foreach (var x in x2)
+                {
+                    Console.Write(x + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+
+    public class TheClass
+    {
+        private int x;
+
+
+
+        public TheClass()
+        {
+            x = 10;
         }
 
-        /*static void Main2(string[] args)
+        public TheClass(int x)
         {
-            TypeC c1, c2;
-            TypeS s1, s2;
+            this.x = 10;
+        }
 
-            c1 = new TypeC();
-            c1.x = 10;
-            c2 = c1;
-            c2.x = 20;
-            Console.WriteLine("c1.x = {0}, c2.x = {1}",c1.x,c2.x);
-            
-            s1 = new TypeS();
-            s1.x = 10;
-            s2 = s1;
-            s2.x = 20;
-            Console.WriteLine("s1.x = {0}, s2.x = {1}", s1.x, s2.x);
 
-            Console.WriteLine("Привет Мир!");
-            Console.WriteLine("Hello World!");
-
-        }*/
+        public override string ToString()
+        {
+            return $"x = {this.x}";
+        }
     }
 }

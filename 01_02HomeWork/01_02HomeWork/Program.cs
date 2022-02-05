@@ -48,7 +48,6 @@ namespace _01_02HomeWork
             else { Console.WriteLine("Entered wrong number!"); }
             //Task 3
             //________________________________________________________________________________
-            /*
             int e, count = 0;
             char str;
             do
@@ -86,9 +85,10 @@ namespace _01_02HomeWork
                 }
 
             } while (e != 46);
-            Console.WriteLine("Total entered "+count+" symbols");*/
+            Console.WriteLine("Total entered "+count+" symbols");
             //Task4
             //__________________________________________________________________________________
+            Console.ReadLine();
             Console.WriteLine("Input 2 numbers");
 
             int a = int.Parse(Console.ReadLine());
@@ -104,6 +104,8 @@ namespace _01_02HomeWork
             Console.WriteLine("Input number to reverse");
             int numrev = int.Parse(Console.ReadLine());
             Console.WriteLine(Reverse(numrev));
+
+
         }
     }
 }
